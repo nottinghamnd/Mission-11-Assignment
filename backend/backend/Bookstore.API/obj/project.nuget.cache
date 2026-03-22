@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "heXdvP2aB5o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\notti\\OneDrive\\Desktop\\413\\Mission 11 Assignment\\backend\\backend\\Bookstore.API\\Bookstore.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\notti\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\notti\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.5\\microsoft.entityframeworkcore.10.0.5.nupkg.sha512",
+    "C:\\Users\\notti\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.5\\microsoft.entityframeworkcore.abstractions.10.0.5.nupkg.sha512",
+    "C:\\Users\\notti\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.5\\microsoft.entityframeworkcore.analyzers.10.0.5.nupkg.sha512",
+    "C:\\Users\\notti\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
