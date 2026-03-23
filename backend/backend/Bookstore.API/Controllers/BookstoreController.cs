@@ -23,13 +23,13 @@ namespace Bookstore.API.Controllers
                 .Take(pageSize)
                 .ToList();
             var totalNumBooks = _context.Books.Count();
-            var someObject = new
+            var passToFrontend = new
             {
                 Books = booklist,
                 TotalNumBooks = totalNumBooks
             }; //could build the object in the return statement or build a model/class and just return the model
 
-            return Ok(someObject);
+            return Ok(passToFrontend);
         }
 
     }
