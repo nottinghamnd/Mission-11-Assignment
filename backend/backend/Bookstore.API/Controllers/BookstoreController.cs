@@ -1,5 +1,4 @@
 ﻿using Bookstore.API.Data;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookstore.API.Controllers
@@ -15,14 +14,27 @@ namespace Bookstore.API.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public IActionResult GetProjects(int pageSize = 10, int pageNum = 1)
+        [HttpGet("AllBooks")]
+        public IActionResult GetBooks(
+            int pageSize = 10,
+            int pageNum = 1,
+            [FromQuery] List<string>? bookCategories = null
+        )
         {
-            var booklist = _context.Books
+            var query = _context.Books.AsQueryable();
+
+            if (bookCategories != null && bookCategories.Any())
+            {
+                query = query.Where(b => bookCategories.Contains(b.Category));
+            }
+
+            var totalNumBooks = query.Count();
+
+            var booklist = query
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
-            var totalNumBooks = _context.Books.Count();
+
             var passToFrontend = new
             {
                 Books = booklist,
@@ -32,5 +44,15 @@ namespace Bookstore.API.Controllers
             return Ok(passToFrontend);
         }
 
+        [HttpGet("GetBookCategories")]
+        public IActionResult GetBookCategories()
+        {
+            var categories = _context.Books
+                .Select(b => b.Category)
+                .Distinct()
+                .ToList();
+
+            return Ok(categories);
+        }
     }
 }
